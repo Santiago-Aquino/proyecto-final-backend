@@ -99,7 +99,7 @@ const restore = async (req, res, next) => {
       from: "santiaaquino4@gmail.com",
       to: `${email}`,
       subject: "Recuperacion de contraseña",
-      html: `<a href="http://localhost:${config.port}/changePassword/${token}">Click aqui para reestablecer su contraseña</a>`,
+      html: `<a href="https://proyecto-final-backend-production-4715.up.railway.app/changePassword/${token}">Click aqui para reestablecer su contraseña</a>`,
     });
 
     res.json({ status: "Success", message: "Envio de email exitoso" });
