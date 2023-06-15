@@ -1,0 +1,86 @@
+paths:
+  /api/users:
+    get:
+      summary: Obtener los datos de los usuarios
+      tags:
+        - Users
+      responses:
+        "200":
+          description: los usuarios se entregaron correctamente desde la db
+        "500":
+          description: error al intentar conectar a la db
+
+    post:
+      summary: Posteo de un usuario
+      tags:
+        - Users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                first_name:
+                  type: string
+                last_name:
+                  type: string
+                email:
+                  type: string
+                password:
+                  type: string
+                age:
+                  type: number
+      responses:
+        "200":
+          description: se posteo correctamente el usuario
+        "500":
+          description: error al intentar conectar a la db
+
+  /api/users/645c14e4b00127a66c10df6c/carts/64554fc643a9c836bf500638:
+    put:
+      summary: Actualizar para que se asocie el carrito en el usuario y viceversa
+      tags:
+        - Users
+      responses:
+        "200":
+          description: La actualizacion se hizo correctamente
+        "500":
+          description: error al intentar conectar a la db
+
+
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        _id:
+          type: ObjectId
+          description: id autogenerado
+        first_name:
+          type: String
+          description: el primer nombre del usuario
+        last_name:
+          type: String
+          description: el apellido del usuario
+        email:
+          type: String
+          description: el email del usuario
+        age:
+          type: Number
+          description: la edad del usuario
+        cart:
+          type: Array
+          description: el carrito del usuario
+        role:
+          type: String
+          description: el rol del cliente
+      example:
+        _id: ObjectId("hfhnf65634bdhbdfjh")
+        first_name: Santiago
+        last_name: Aquino
+        email: santiago@gmail.com
+        age: 40
+        cart: [_id: "214124123412"]
+        role: usuario
+

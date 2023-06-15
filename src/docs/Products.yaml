@@ -1,0 +1,141 @@
+paths:
+  /api/products:
+    get:
+      summary: Obtener los datos de los productos
+      tags:
+        - Products
+      responses:
+        "200":
+          description: los productos se entregaron correctamente desde la db
+        "500":
+          description: error al intentar conectar a la db
+
+    post:
+      summary: Posteo de producto
+      tags:
+        - Products
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                description:
+                  type: string
+                code:
+                  type: string
+                price:
+                  type: number
+                status:
+                  type: boolean
+                stock:
+                  type: number
+                category:
+                  type: string
+                owner:
+                  type: string
+      responses:
+        "200":
+          description: posteo de producto exitoso
+        "500":
+          description: error al intentar conectar a la db
+
+  /api/products/645a6bef61b49237fd4b25f1:
+    get:
+      summary: Obtener un unico productos
+      tags:
+        - Products
+      responses:
+        "200":
+          description: el producto se mostro correctamente desde la db
+        "500":
+          description: error al intentar conectar a la db
+
+    put:
+      summary: Actualizar los datos de un producto
+      tags:
+        - Products
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                description:
+                  type: string
+                code:
+                  type: string
+                price:
+                  type: number
+                status:
+                  type: boolean
+                stock:
+                  type: number
+                category:
+                  type: string
+                owner:
+                  type: string
+      responses:
+        "200":
+          description: el producto se actualizo correctamente
+        "500":
+          description: error al intentar conectar a la db
+
+    delete:
+      summary: Eliminacion de producto
+      tags:
+        - Products
+      responses:
+        "200":
+          description: la eliminacion del producto fue exitosa
+        "500":
+          description: error al intentar conectar a la db
+
+components:
+  schemas:
+    Products:
+      type: object
+      properties:
+        _id:
+          type: ObjectId
+          description: id autogenerado
+        title:
+          type: String
+          description: el titulo del producto
+        description:
+          type: String
+          description: una descripcion breve del producto
+        code:
+          type: String
+          description: el codigo del producto
+        price:
+          type: Number
+          description: el precio del producto
+        status:
+          type: Boolean
+          description: si se encuentra el producto o no
+        stock:
+          type: Number
+          description: el stock del producto
+        category:
+          type: String
+          description: la categoria del producto
+        owner:
+          type: String
+          description: quien creo el producto
+      example:
+        _id: ObjectId("bgsgd353ug2gdg")
+        title: Televisor Samsung
+        description: este televisor tiene tales caracterizticas ...
+        code: FG6GD
+        price: 500000
+        status: true
+        stock: 15
+        category: Electrodomesticos
+        owner: admin

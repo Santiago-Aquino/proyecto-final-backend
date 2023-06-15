@@ -1,0 +1,63 @@
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <img src="../icono/icono.jpg" alt="Este es el icono del ecommerce" />
+    <a class="navbar-brand">Chat</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page">Bienvenido/a
+            {{username}}
+            [{{role}}]</a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link hover ms-3"
+            aria-current="page"
+            href="/products"
+          >Productos <i class="fa-solid fa-cart-shopping"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link hover" href="/login">Salir
+            <i class="fa-solid fa-right-from-bracket"></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="containerInfo">
+  <input type="text" id="message" placeholder="Escriba aqui su mensaje" />
+  <div class="containerButtons">
+    <button type="submit" id="button">Enviar</button>
+    <button type="reset" id="delete"> Eliminar</button>
+  </div>
+</div>
+
+<div id="container">
+
+</div>
+
+<div id="username" style="display: none;">
+  {{username}}
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/chat.js"></script>
+<script>
+  const sockets = io.connect('http://localhost:8080/', {forceNew: true});
+</script>
+<script
+  src="https://kit.fontawesome.com/cad47029c3.js"
+  crossorigin="anonymous"
+></script>

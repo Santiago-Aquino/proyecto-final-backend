@@ -1,0 +1,56 @@
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <img src="./icono/icono.jpg" alt="Este es el icono del ecommerce" />
+    <a class="navbar-brand" href="#">Iniciar sesion</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link hover" href="/users">Usuarios
+            <i class="fa-solid fa-user"></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="containerForm bg-transparent">
+  <form class="form" id="loginForm">
+    <h1 class="titleForm">Logueate!!</h1>
+    <label for="">Email: </label>
+    <input type="text" name="email" />
+    <label for="">Password: </label>
+    <input type="password" name="password" />
+    <input type="submit" class="button" />
+    <div class="messageForm">
+      <p>Si no esta registrado, ingrese!! <a href="/register">aqui</a></p>
+      <p>Olvido su contraseña? ingrese <a href="/restore">aqui</a></p>
+    </div>
+    <a href="/api/sessions/github" class="github"><i
+        class="fa-brands fa-github"
+      ></i>
+      Entrar con github</a>
+  </form>
+</div>
+
+<footer>
+  <p style="text-align: center; color:whitesmoke;">
+    &copy; Santiago Aquino - 2023</p>
+</footer>
+
+<script src="/js/login.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script
+  src="https://kit.fontawesome.com/cad47029c3.js"
+  crossorigin="anonymous"
+></script>

@@ -1,0 +1,97 @@
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <img src="./icono/icono.jpg" alt="Este es el icono del ecommerce">
+    <a class="navbar-brand">Productos</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page">Bienvenido/a {{user.name}} [{{user.role}}]</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link hover ms-3" aria-current="page" href="/chat">Chat <i class="fa-solid fa-comment"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link hover ms-3" href="/login">Salir <i class="fa-solid fa-right-from-bracket"></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="containerProducts">
+  {{#each products}}
+    <div class="card" style="width: 18rem; box-shadow: 3px 3px 3px 3px #00000050;">
+      <img
+        src="/img/{{this.title}}.png"
+        class="card-img-top"
+        alt="Imagen de {{this.title}}"
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{this.title}}</h5>
+        <p class="card-text">
+          <strong>descripcion:</strong>
+          {{description}}
+          <br />
+          <strong>precio:</strong>
+          {{price}}<br />
+          <strong>stock:</strong>
+          {{stock}}<br />
+          <strong>categoria:</strong>
+          {{category}}
+        </p>
+        <button class="btn btn-primary" onclick={addToCart("{{id}}")}>Agregar</button>
+      </div>
+      <div class="id" style="display: none;">
+        {{_id}}
+      </div>
+    </div>
+  {{/each}}
+
+  <div id="idUser" style="display: none;">
+    {{user.id}}
+  </div>
+
+  <div id="emailUser" style="display: none;">
+    {{user.email}}
+  </div>
+
+  <button class="button" id="buttonComprar">Comprar carrito <i class="fa-brands fa-opencart"></i></button>
+
+  {{#if hasPrevPage}}
+    <a
+      href="?query={{query}}&page={{prevPage}}&limit={{limit}}&sort={{sort}}"
+    ><button class="button">Anterior</button></a>
+  {{/if}}
+
+  {{#if hasNextPage}}
+    <a
+      href="?query={{query}}&page={{nextPage}}&limit={{limit}}&sort={{sort}}"
+    ><button class="button">Siguiente</button></a>
+  {{/if}}
+</div>
+
+<footer>
+  <p style="text-align: center; color:whitesmoke;"> &copy; Santiago Aquino - 2023</p>
+</footer>
+
+<script src="/js/products.js"></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+  crossorigin="anonymous"
+></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script
+  src="https://kit.fontawesome.com/cad47029c3.js"
+  crossorigin="anonymous"
+></script>

@@ -1,0 +1,87 @@
+paths:
+  /api/carts:
+    get:
+      summary: Obtener los datos de los carritos
+      tags:
+        - Carts
+      responses:
+        "200":
+          description: los carritos se entregaron correctamente desde la db
+        "500":
+          description: error al intentar conectar a la db
+
+    post:
+      summary: Posteo de carrito
+      tags:
+        - Carts
+      responses:
+        "200":
+          description: se posteo correctamente el carrito
+        "500":
+          description: error al intentar conectar a la db
+
+  /api/carts/64554fc643a9c836bf500638:
+    get:
+      summary: Obtener los datos de un carrito en especial
+      tags:
+        - Carts
+      responses:
+        "200":
+          description: se actualizaron correctamente los datos del carrito
+        "500":
+          description: error al intentar conectar a la db
+
+    put:
+      summary: Actualizar los datos del carrito
+      tags:
+        - Carts
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                products:
+                  type: object
+
+      responses:
+        "200":
+          description: se actualizaron correctamente los datos del carrito
+        "500":
+          description: error al intentar conectar a la db
+
+    delete:
+      summary: Eliminar carrito
+      tags:
+        - Carts
+      responses:
+        "200":
+          description: carrito eliminado correctamente
+        "500":
+          description: error al intentar conectar a la db
+
+components:
+  schemas:
+    Carts:
+      type: object
+      properties:
+        _id:
+          type: ObjectId
+          description: id autogenerado
+        products:
+          type: Array
+          description: se encuentran todos los productos asociados a ese carrito con ese id
+        users:
+          type: Array
+          description: se encuentran todos los usuarios asociados a ese carrito con ese id
+      example:
+        _id: ObjectId("yhfbhe6678hdfjdjw7776")
+        products:
+          [televisor y sus caracterizticas, celular y sus caracterizticas, etc]
+        users:
+          [
+            santiago aquino y sus caracterizticas,
+            enzo fernandez y sus caracterizticas,
+            etc,
+          ]
