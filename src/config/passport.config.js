@@ -86,7 +86,7 @@ const initializePassport = () => {
       {
         clientID: "Iv1.1b1f54066790674f",
         clientSecret: "771093a48eaffb5a556abfc2ccfec802b39323f9",
-        callbackURL: `/api/sessions/`,
+        callbackURL: `https://proyecto-final-backend-production-4715.up.railway.app/api/sessions`,
       },
       async (accessToken, refreshToken, profile, done) => {
         try {
