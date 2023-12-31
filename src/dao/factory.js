@@ -6,9 +6,7 @@ export let Users;
 switch (config.persistence) {
   case "MONGO":
     mongoose.set("strictQuery", false);
-    mongoose.connect(
-      `mongodb+srv://santiagoaquino:Clwb3yHvsdsAKead@codercluster.lnjatj6.mongodb.net/${config.mongoName}?retryWrites=true&w=majority`
-    );
+    mongoose.connect(config.mongo);
     const { default: UsersManager } = await import("./dbManagers/users.js");
 
     Users = new UsersManager();

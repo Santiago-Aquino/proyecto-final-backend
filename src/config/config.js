@@ -2,7 +2,7 @@ import dotenv from "dotenv";
 // DEVELOPMENT
 // PRODUCTION
 
-export const enviroment = "PRODUCTION";
+export const enviroment = "DEVELOPMENT";
 dotenv.config({
   path:
     enviroment === "DEVELOPMENT" ? "./.env.development" : "./.env.production",
